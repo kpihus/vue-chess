@@ -38,7 +38,9 @@ export default {
     },
     /** Return 'w' or 'b' if it is white or black's turn respectively */
     turn () {
-      return this.chessGame.getTurn()
+      const turn = this.chessGame.getTurn()
+      console.log('TURN', turn)
+      return turn
     },
     isActive () {
       return (this.side = this.chessGame.getTurn())
@@ -59,6 +61,12 @@ export default {
     }
   },
   created () {
+    console.log('CHESS CREATED', 1) // TODO: REMOVE
+    console.log('SOCKET', this.$socket) // TODO: REMOVE
+    this.$socket.on('move', (msg) => {
+      console.log('MSG234', msg.pos) // TODO: REMOVE
+      this.squareSelected(msg.pos)
+    })
     // Initialize a new game for the provided pgn and side properties
     this.chessGame = new ChessGame(this.pgn, this.side)
   },
@@ -143,7 +151,7 @@ export default {
       const result = this.chessGame.calculateMove(source, target)
 
       // if result is undefined, move is invalid
-      if (result) {
+      if (result || !result) {
         this.swap(target, source) // Swap the contents of the squares
         this.syncBoard() // Sync the piece position with the board model
         this.availableMoves = {} // Reset available moves
@@ -155,6 +163,7 @@ export default {
         this.selectedIndex = -1
         this.squareSelected(target)
       }
+      console.log('TURN', this.chessGame.getTurn())
     },
 
     /** Sync the displayed board with the chessgame object. */
@@ -199,6 +208,7 @@ export default {
 
     /** On-click for square, select square or try move if suqare is selected  */
     squareSelected (index) {
+      console.log('SELECTED', index, this.isActive) // TODO: REMOVE
       if (this.isActive) {
         this.availableMoves = {}
         if (this.selectedIndex === index) {

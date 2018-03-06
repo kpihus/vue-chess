@@ -3,7 +3,7 @@
 
 import Chessboard from '../../components/chessboard/chessboard.vue'
 // import Socket from '../../services/chess-socket'
-import StockfishApi from '../../services/stockfish-api'
+// import StockfishApi from '../../services/stockfish-api'
 import Chess from 'chess.js'
 
 export default {
@@ -17,7 +17,12 @@ export default {
       userid: Math.floor(Math.random() * 1000),
       side: 'w',
       twoplayer: false,
-      iconDir: 'static/icons/'
+      iconDir: 'static/icons/',
+      startnew: false,
+      blackplayer: '',
+      whiteplayer: '',
+      historyshow: false,
+      gamehistory: null
     }
   },
   computed: {
@@ -28,10 +33,14 @@ export default {
     }
   },
   created () {
-    this.newGame()
-    this.stockfishApi = new StockfishApi()
+    this.newGame();
+    this.$socket.on('log', (msg) => {
+      console.log('LOG>', msg)
+    })
+    // this.stockfishApi = new StockfishApi()
     // this.ai = new Ai()
     // this.socket = new Socket(this.userid)
+    // console.log('NEW SOCKET', this.socket) // TODO: REMOVE
 
     // this.socket.onNewMove((newMove) => {
     //   console.log(newMove)
@@ -39,24 +48,21 @@ export default {
     // })
   },
   methods: {
+    getHistory () {
+      this.$http.get('http://localhost:3000/history').then(res => {
+        this.$set(this, 'historyshow', true)
+        // this.historyshow = false
+        this.$set(this, 'gamehistory', res.body)
+      })
+    },
     newGame () {
       const chess = Chess()
       this.pgn = chess.pgn()
     },
     boardChange (pgn) {
+      console.log('BOARD CHANGED', pgn) // TODO: REMOVE
       this.pgn = pgn
-
-      if (this.twoplayer) {
-        setTimeout(this.swapSides, 1000)
-      } else if (this.game.turn() !== this.side) {
-        this.stockfishApi.getBestMove(this.game.fen()).then(response => {
-          console.log(response)
-          this.move(response.data)
-        })
-        // const history = this.game.history()
-        // const lastMove = history[history.length - 1]
-        // this.socket.emitMove(lastMove)
-      }
+      this.$socket.emit('newpgn', pgn)
     },
     swapSides () {
       if (this.side === 'w') {
@@ -71,11 +77,14 @@ export default {
       this.move(move)
     },
     move (move) {
+      console.log('MOVE cmd', move) // TODO: REMOVE
       const result = this.game.move(move, {sloppy: true})
-      console.log(result)
+      console.log('MOVE RES', result) // TODO: REMOVE
       this.pgn = this.game.pgn()
     },
     reset () {
+      this.startnew = false
+      this.$socket.emit('newgame', {player1: this.whiteplayer, player2: this.blackplayer});
       const chess = this.newGame()
       this.pgn = chess.pgn()
     }

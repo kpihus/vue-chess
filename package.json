@@ -18,10 +18,14 @@
     "axios": "0.16.1",
     "chess.js": "jhlywa/chess.js#b2650a3",
     "jsencrypt": "2.3.1",
+    "resource": "^0.8.1",
     "skeleton-css": "2.0.4",
     "socket.io-client": "2.0.1",
     "vue": "^2.2.6",
+    "vue-moment": "^3.2.0",
+    "vue-resource": "^1.5.0",
     "vue-router": "^2.3.1",
+    "vue-websocket": "^0.2.2",
     "vuex": "2.3.1"
   },
   "devDependencies": {

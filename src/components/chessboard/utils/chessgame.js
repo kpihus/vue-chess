@@ -33,7 +33,9 @@ export default class ChessGame {
 
   /** Get the pgn string for the current game  */
   getPGN () {
-    return this.game.pgn()
+    const pgn = this.game.pgn()
+    console.log('PGN STRING', pgn) // TODO: REMOVE
+    return pgn
   }
 
   /** Get the verbose history for the current game */

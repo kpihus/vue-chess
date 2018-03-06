@@ -7,6 +7,12 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+import VueResource from 'vue-resource'
+import VueWebsocket from 'vue-websocket'
+Vue.use(VueWebsocket, 'ws://localhost:3003')
+Vue.use(VueResource)
+Vue.use(require('vue-moment'))
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

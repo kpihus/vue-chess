@@ -1,5 +1,7 @@
 <template>
   <div class="chessboard-container">
+    <!--/-->
+    <!--<div v-show="chessGame.getTurn() == 'b'" id="blackmove">B</div>-->
     <div ref="board" class="board board-background">
       <div class="square"
           v-for="(square, squareIndex) in board"
@@ -23,8 +25,9 @@
           <img draggable="true" v-on:dragstart="drag(squareIndex)" v-if="square.piece" class="piece" :src="getIcon(square)">
       </div>
     </transition-group>
+    <!---->
+    <!--<div v-show="chessGame.getTurn() == 'w'" id="whitemove">W</div>-->
     </div>
-  </div>
 </template>
 
 <script src="./chessboard.js"></script>
@@ -89,7 +92,7 @@
 }
 
 .piece {
-  max-width: 80%;
+  max-width: 100%;
   cursor: grab;
 }
 

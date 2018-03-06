@@ -1,37 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="264px" height="264px" viewBox="0 0 264 264" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 44 (41411) - http://www.bohemiancoding.com/sketch -->
-    <title>wr</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <circle id="path-1" cx="128" cy="128" r="128"></circle>
-        <filter x="-4.3%" y="-4.3%" width="108.6%" height="108.6%" filterUnits="objectBoundingBox" id="filter-2">
-            <feMorphology radius="8" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
-            <feGaussianBlur stdDeviation="2.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-        <polygon id="path-3" points="153.1925 107.065 165.02 97.52 165.02 61 91.98 61 91.98 97.52 103.8075 107.065 99.6575 150.225 87 155.205 87 195.045 170 195.045 170 155.205 157.3425 150.225"></polygon>
-        <filter x="-21.1%" y="-13.1%" width="142.2%" height="126.1%" filterUnits="objectBoundingBox" id="filter-4">
-            <feMorphology radius="10" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
-            <feGaussianBlur stdDeviation="7.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="5" dy="10" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="wr" transform="translate(4.000000, 4.000000)">
-            <g id="Oval">
-                <use fill="#EAEAEA" fill-rule="evenodd" xlink:href="#path-1"></use>
-                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                <use stroke="#303030" stroke-width="8" xlink:href="#path-1"></use>
-            </g>
-            <g id="br" fill-rule="nonzero">
-                <use fill="#303030" fill-rule="evenodd" xlink:href="#path-3"></use>
-                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="45" height="45">
+  <g style="opacity:1; fill:#ffffff; fill-opacity:1; fill-rule:evenodd; stroke:#000000; stroke-width:1.5; stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1;">
+    <path
+      d="M 9,39 L 36,39 L 36,36 L 9,36 L 9,39 z "
+      style="stroke-linecap:butt;" />
+    <path
+      d="M 12,36 L 12,32 L 33,32 L 33,36 L 12,36 z "
+      style="stroke-linecap:butt;" />
+    <path
+      d="M 11,14 L 11,9 L 15,9 L 15,11 L 20,11 L 20,9 L 25,9 L 25,11 L 30,11 L 30,9 L 34,9 L 34,14"
+      style="stroke-linecap:butt;" />
+    <path
+      d="M 34,14 L 31,17 L 14,17 L 11,14" />
+    <path
+      d="M 31,17 L 31,29.5 L 14,29.5 L 14,17"
+      style="stroke-linecap:butt; stroke-linejoin:miter;" />
+    <path
+      d="M 31,29.5 L 32.5,32 L 12.5,32 L 14,29.5" />
+    <path
+      d="M 11,14 L 34,14"
+      style="fill:none; stroke:#000000; stroke-linejoin:miter;" />
+  </g>
 </svg>
